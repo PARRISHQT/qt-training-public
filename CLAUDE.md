@@ -16,6 +16,6 @@ At the end of every turn where you respond to the user, do these steps:
    ```
 
 2. Commit all changes, including code and `prompt-log.md`, with a short message that describes the change.
-3. Push to `origin`. If the push fails, tell the user in one line and continue.
+3. Push the current branch with `git push -u origin HEAD`. If the push fails, tell the user in one line and continue.
 
 Do not leave out entries, and do not edit earlier entries.

@@ -15,22 +15,25 @@ You need:
 ## Setup
 
 1. Fork this repo to your GitHub account: click **Fork** and keep **Copy the `main` branch only** checked.
-2. Clone your fork and start Claude Code:
+2. Clone your fork, create a branch for the first pass, and start Claude Code:
 
    ```bash
    git clone https://github.com/<your-github-username>/qt-training-public.git
    cd qt-training-public
+   git checkout -b pass-1
    claude
    ```
 
 3. Wait for the instructors to give you the first task. Claude Code commits and pushes your work to your fork after every prompt (see `CLAUDE.md`).
 
+Each pass of the exercise goes on its own branch (`pass-1`, `pass-2`, …). The instructors will give you the command to start each new pass.
+
 ## Share your work
 
-Once your fork has its first push, open a pull request back to this repo so the instructors can review your work:
+Open one draft pull request back to this repo for each pass branch, once that branch has its first push. This lets the instructors compare your passes.
 
-1. On your fork's GitHub page, click **Contribute**, then **Open pull request**.
-2. Check that the base is `phase2interactive/qt-training-public` · `main` and the compare branch is your fork's branch.
-3. Title it `<Your Name> - Session 2`, choose **Create draft pull request**, and leave it open.
+1. On your fork's GitHub page, switch to the pass branch, then click **Contribute** → **Open pull request**.
+2. Check that the base is `phase2interactive/qt-training-public` · `main`.
+3. Title it `<Your Name> - Pass <N>`, choose **Create draft pull request**, and leave it open.
 
-You only need to do this once. Every later push from your fork updates the same pull request. We will not merge it.
+Later pushes to that branch update the same pull request. We will not merge it.
