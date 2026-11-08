@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Build output
+bin/
+obj/
+dist/
+build/
+out/
+.next/
+
+# Local databases
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# Test output
+test-results/
+playwright-report/
+.playwright-mcp/
+coverage/
+
+# Environment and editor
+.env
+.env.*
+.vs/
+.vscode/
+.idea/
+*.user
+.DS_Store
+Thumbs.db
+
+# Claude Code local settings
+.claude/settings.local.json
