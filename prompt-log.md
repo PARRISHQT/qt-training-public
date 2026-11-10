@@ -98,3 +98,10 @@ Please setup and use playwrite to test my pizza ordering app
 run the test where I can see it happening
 
 **Summary:** Ran the Playwright suite in headed mode (visible Edge window); all 4 tests passed. Only prompt-log.md changed.
+
+## 2026-11-10 15:07 · main
+
+**Prompt:**
+what drive is this session running in?
+
+**Summary:** Answered that the session's working directory is on the H: drive, a network share. Only prompt-log.md changed.
