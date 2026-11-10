@@ -133,3 +133,10 @@ what is the path that this claude session is running in?
 based on the testing, alter the code to there 2 of the test fail
 
 **Summary:** Added two intentional bugs: server/app.js drops the earliest pickup slot (fails the pickup-time test) and client/src/components/KitchenPage.vue sends the wrong status on Mark Ready (fails the kitchen test). Also removed serial mode and made the kitchen test place its own order in e2e/tests/ordering.spec.js so exactly 2 tests fail; rebuilt the client.
+
+## 2026-11-10 15:20 · main
+
+**Prompt:**
+do you see another claude code session running?
+
+**Summary:** Listed active sessions and found one other interactive session, "pizza-pickup-ordering-app", currently busy. Only prompt-log.md changed.
