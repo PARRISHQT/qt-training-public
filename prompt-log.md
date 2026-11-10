@@ -84,3 +84,10 @@ Simply this and, if needed run it locally on c:\users\jfoster\Documents\Claude C
 please launch them in edge, both the customer side and the kitchen side
 
 **Summary:** Started the server from C:\Users\jfoster\Documents\Claude Code Class on port 3100 and opened the customer page and the /kitchen page in Edge. Only prompt-log.md changed.
+
+## 2026-11-10 15:04 · main
+
+**Prompt:**
+Please setup and use playwrite to test my pizza ordering app
+
+**Summary:** Added a Playwright project in e2e/ (config using installed Edge, 4 end-to-end tests covering ordering, validation, pickup times, and the kitchen flow), a test-only TEST_NOW_MINUTES hook in server/index.js, a root test:e2e script, and README notes. All 4 tests pass.

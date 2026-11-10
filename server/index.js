@@ -23,5 +23,7 @@ const app = createApp({
   db: openDb(dbFile),
   kitchenPin,
   staticDir: join(root, 'client', 'dist'),
+  // Test-only: pin "now" (minutes since midnight) so e2e tests don't depend on the clock.
+  ...(process.env.TEST_NOW_MINUTES ? { now: () => Number(process.env.TEST_NOW_MINUTES) } : {}),
 });
 app.listen(port, () => console.log(`Neighborhood Pizza running at http://localhost:${port}`));

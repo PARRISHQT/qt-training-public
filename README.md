@@ -55,3 +55,8 @@ Open http://localhost:3000/admin.html. There is no password, so the admin API (`
 - **Specialty pizzas:** add, edit, and delete pizzas with a fixed topping list and a price per size.
 
 `npm test` runs against a temporary copy of the data, so it never changes your real menu or orders.
+
+## Neighborhood Pizza (Vue + Node + SQLite)
+
+- `npm run install:all`, then `npm start` (set `KITCHEN_PIN` in a git-ignored `.env`). Customer page: `/`, kitchen page: `/kitchen`.
+- `npm test` runs the server tests. `npm run test:e2e` runs the Playwright browser tests in `e2e/` using the installed Microsoft Edge. Build the client first (`npm run build`). The tests start their own server on port 3200 with a temporary database.
