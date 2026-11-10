@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tulsa Pizza Co. – Order Online</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header><h1>🍕 Tulsa Pizza Co.</h1><p>Fresh, hot pizza. Pickup or delivery.</p></header>
+  <main>
+    <section id="builder" class="card">
+      <h2>Build a pizza</h2>
+      <label>Size <select id="size"></select></label>
+      <label>Crust <select id="crust"></select></label>
+      <fieldset><legend>Toppings</legend><div id="toppings" class="grid"></div></fieldset>
+      <label>Quantity <input id="qty" type="number" min="1" max="20" value="1"></label>
+      <button id="addPizza" type="button">Add pizza to order</button>
+      <h2>Sides &amp; drinks</h2>
+      <div id="sides" class="sides"></div>
+    </section>
+
+    <section id="cart" class="card">
+      <h2>Your order</h2>
+      <ul id="cartItems"></ul>
+      <p id="empty">Your cart is empty.</p>
+      <div class="radio">
+        <label><input type="radio" name="method" value="pickup" checked> Pickup</label>
+        <label><input type="radio" name="method" value="delivery"> Delivery</label>
+      </div>
+      <label>Tip <select id="tip"></select></label>
+      <dl id="totals"></dl>
+      <form id="checkout">
+        <label>Name <input name="name" required maxlength="80" autocomplete="name"></label>
+        <label>Phone <input name="phone" type="tel" required maxlength="20" autocomplete="tel"></label>
+        <label id="addrWrap" hidden>Delivery address <input name="address" maxlength="200" autocomplete="street-address"></label>
+        <label>Notes <input name="notes" maxlength="200"></label>
+        <p class="hint">Payment is collected at the store or by the driver. Please do not enter card numbers on this site.</p>
+        <p id="errors" role="alert"></p>
+        <button type="submit" id="place">Place order</button>
+      </form>
+    </section>
+
+    <section id="confirmation" class="card" hidden>
+      <h2>Thanks! Order <span id="orderId"></span></h2>
+      <p>Status: <strong id="status"></strong></p>
+      <p id="payment"></p>
+      <ul id="confItems"></ul>
+      <p>Total: <strong id="confTotal"></strong></p>
+      <button id="newOrder" type="button">Start a new order</button>
+    </section>
+  </main>
+  <footer>Prices are estimates based on Tulsa-area averages. Demo application.</footer>
+  <script src="app.js"></script>
+</body>
+</html>

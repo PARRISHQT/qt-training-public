@@ -1,0 +1,22 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, Segoe UI, Arial, sans-serif; background: #faf5ee; color: #2b2118; }
+header { background: #b3261e; color: #fff; padding: 1rem 1.5rem; }
+header h1 { margin: 0; } header p { margin: .25rem 0 0; }
+main { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; max-width: 1100px; margin: 1rem auto; padding: 0 1rem; }
+.card { background: #fff; border-radius: 10px; padding: 1rem 1.25rem; box-shadow: 0 1px 4px rgba(0,0,0,.15); }
+.card[hidden] { display: none; }
+label { display: block; margin: .6rem 0; font-weight: 600; }
+select, input:not([type=radio]):not([type=checkbox]) { display: block; width: 100%; padding: .5rem; margin-top: .25rem; border: 1px solid #bbb; border-radius: 6px; font: inherit; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: .25rem; }
+.grid label, .radio label { font-weight: 400; margin: .1rem 0; }
+.sides > div { display: flex; justify-content: space-between; align-items: center; padding: .3rem 0; border-bottom: 1px solid #eee; }
+button { background: #b3261e; color: #fff; border: 0; padding: .7rem 1.2rem; border-radius: 6px; font: inherit; font-weight: 700; cursor: pointer; }
+button.small { padding: .3rem .7rem; } button:hover { background: #8f1e18; } button:disabled { background: #999; }
+ul { padding-left: 0; list-style: none; }
+#cartItems li, #confItems li { display: flex; justify-content: space-between; gap: .5rem; padding: .4rem 0; border-bottom: 1px solid #eee; }
+.radio { display: flex; gap: 1.5rem; margin: .5rem 0; }
+dl { display: grid; grid-template-columns: 1fr auto; margin: .75rem 0; }
+dl dt, dl dd { margin: 0; padding: .15rem 0; } dl dd { text-align: right; }
+dl .total { font-weight: 800; font-size: 1.15rem; border-top: 2px solid #2b2118; }
+.hint { font-size: .85rem; color: #666; } #errors { color: #b3261e; font-weight: 600; white-space: pre-line; }
+footer { text-align: center; color: #666; font-size: .85rem; padding: 1rem; }

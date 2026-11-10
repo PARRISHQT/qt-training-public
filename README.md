@@ -37,3 +37,11 @@ Open one draft pull request back to this repo for each pass branch, once that br
 3. Title it `<Your Name> - Pass <N>`, choose **Create draft pull request**, and leave it open.
 
 Later pushes to that branch update the same pull request. We will not merge it.
+
+## Pizza ordering app
+
+Run `npm start` and open http://localhost:3000 (Node 18+, no dependencies). Run `npm test` for tests.
+
+- Backend: `server.js` (REST API), `pricing.js` (server-side pricing/validation), orders stored in `data/orders.json`.
+- Frontend: `public/` (vanilla HTML/CSS/JS).
+- Prices, tax, and delivery fee live in `data/menu.json` with research notes. They are Tulsa-area estimates and should be reviewed by a person before real use.
