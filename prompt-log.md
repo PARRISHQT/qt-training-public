@@ -91,3 +91,10 @@ please launch them in edge, both the customer side and the kitchen side
 Please setup and use playwrite to test my pizza ordering app
 
 **Summary:** Added a Playwright project in e2e/ (config using installed Edge, 4 end-to-end tests covering ordering, validation, pickup times, and the kitchen flow), a test-only TEST_NOW_MINUTES hook in server/index.js, a root test:e2e script, and README notes. All 4 tests pass.
+
+## 2026-11-10 15:06 · main
+
+**Prompt:**
+run the test where I can see it happening
+
+**Summary:** Ran the Playwright suite in headed mode (visible Edge window); all 4 tests passed. Only prompt-log.md changed.
