@@ -10,12 +10,15 @@
   <header><h1>🍕 Tulsa Pizza Co.</h1><p>Fresh, hot pizza. Pickup or delivery.</p></header>
   <main>
     <section id="builder" class="card">
-      <h2>Build a pizza</h2>
+      <h2>Pizza options</h2>
       <label>Size <select id="size"></select></label>
       <label>Crust <select id="crust"></select></label>
-      <fieldset><legend>Toppings</legend><div id="toppings" class="grid"></div></fieldset>
       <label>Quantity <input id="qty" type="number" min="1" max="20" value="1"></label>
-      <button id="addPizza" type="button">Add pizza to order</button>
+      <h2>Specialty pizzas</h2>
+      <div id="specials" class="sides"></div>
+      <h2>Build your own</h2>
+      <fieldset><legend>Toppings</legend><div id="toppings" class="grid"></div></fieldset>
+      <button id="addPizza" type="button">Add custom pizza to order</button>
       <h2>Sides &amp; drinks</h2>
       <div id="sides" class="sides"></div>
     </section>

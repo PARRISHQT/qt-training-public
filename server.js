@@ -4,15 +4,22 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { priceOrder } = require('./pricing');
+const { applyPrices, validateSpecialty, uniqueId } = require('./admin');
 
 const PORT = process.env.PORT || 3000;
-const MENU_FILE = path.join(__dirname, 'data', 'menu.json');
-const ORDERS_FILE = path.join(__dirname, 'data', 'orders.json');
+const DATA_DIR = process.env.DATA_DIR || path.join(__dirname, 'data');
+const MENU_FILE = path.join(DATA_DIR, 'menu.json');
+const ORDERS_FILE = path.join(DATA_DIR, 'orders.json');
 const PUBLIC_DIR = path.join(__dirname, 'public');
 const MIME = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml' };
 
 const loadMenu = () => JSON.parse(fs.readFileSync(MENU_FILE, 'utf8'));
-const loadOrders = () => (fs.existsSync(ORDERS_FILE) ? JSON.parse(fs.readFileSync(ORDERS_FILE, 'utf8')) : []);
+function saveMenu(menu) {
+  const tmp = MENU_FILE + '.tmp';
+  fs.writeFileSync(tmp, JSON.stringify(menu, null, 2));
+  fs.renameSync(tmp, MENU_FILE);
+}
+const loadOrders =() => (fs.existsSync(ORDERS_FILE) ? JSON.parse(fs.readFileSync(ORDERS_FILE, 'utf8')) : []);
 const saveOrders = (o) => fs.writeFileSync(ORDERS_FILE, JSON.stringify(o, null, 2));
 
 function send(res, code, body, type = 'application/json') {
@@ -41,7 +48,55 @@ function statusFor(order) {
 
 const clean = (v, max) => String(v || '').trim().slice(0, max);
 
+// Admin has no password (by request), so it is limited to requests from this machine.
+const isLocal = (req) => ['127.0.0.1', '::1', '::ffff:127.0.0.1'].includes(req.socket.remoteAddress);
+
+async function handleAdmin(req, res, url) {
+  if (!isLocal(req)) return send(res, 403, { errors: ['Admin is only available from the server machine'] });
+  const p = url.pathname;
+  if (req.method === 'GET' && p === '/api/admin/menu') return send(res, 200, loadMenu());
+  if (req.method === 'GET' && p === '/api/admin/orders') {
+    const orders = loadOrders().map((o) => ({ ...o, status: statusFor(o) })).reverse();
+    return send(res, 200, orders);
+  }
+  if (req.method === 'PUT' && p === '/api/admin/prices') {
+    const { errors, menu } = applyPrices(loadMenu(), await readBody(req));
+    if (errors.length) return send(res, 400, { errors });
+    saveMenu(menu);
+    return send(res, 200, menu);
+  }
+  if (req.method === 'POST' && p === '/api/admin/specialties') {
+    const menu = loadMenu();
+    const { errors, value } = validateSpecialty(menu, await readBody(req));
+    if (errors.length) return send(res, 400, { errors });
+    const sp = { id: uniqueId(menu, value.name), ...value };
+    menu.specialties.push(sp);
+    saveMenu(menu);
+    return send(res, 201, sp);
+  }
+  const m = p.match(/^\/api\/admin\/specialties\/([a-z0-9-]+)$/);
+  if (m) {
+    const menu = loadMenu();
+    const idx = menu.specialties.findIndex((x) => x.id === m[1]);
+    if (idx < 0) return send(res, 404, { errors: ['Specialty not found'] });
+    if (req.method === 'PUT') {
+      const { errors, value } = validateSpecialty(menu, await readBody(req), m[1]);
+      if (errors.length) return send(res, 400, { errors });
+      menu.specialties[idx] = { id: m[1], ...value };
+      saveMenu(menu);
+      return send(res, 200, menu.specialties[idx]);
+    }
+    if (req.method === 'DELETE') {
+      menu.specialties.splice(idx, 1);
+      saveMenu(menu);
+      return send(res, 200, { ok: true });
+    }
+  }
+  return send(res, 404, { errors: ['Not found'] });
+}
+
 async function handleApi(req, res, url) {
+  if (url.pathname.startsWith('/api/admin/')) return handleAdmin(req, res, url);
   if (req.method === 'GET' && url.pathname === '/api/menu') {
     const { _notes, ...menu } = loadMenu();
     return send(res, 200, menu);

@@ -45,3 +45,13 @@ Run `npm start` and open http://localhost:3000 (Node 18+, no dependencies). Run 
 - Backend: `server.js` (REST API), `pricing.js` (server-side pricing/validation), orders stored in `data/orders.json`.
 - Frontend: `public/` (vanilla HTML/CSS/JS).
 - Prices, tax, and delivery fee live in `data/menu.json` with research notes. They are Tulsa-area estimates and should be reviewed by a person before real use.
+
+### Admin view
+
+Open http://localhost:3000/admin.html. There is no password, so the admin API (`/api/admin/*`) only accepts requests from the machine running the server. Add authentication before exposing it to a network.
+
+- **Orders:** all orders, newest first, with customer, items, total, and status.
+- **Prices & fees:** sizes, crusts, toppings, sides, delivery fee/minimum/free-over threshold, and tax rate. Changes save to `data/menu.json` and apply to new orders immediately.
+- **Specialty pizzas:** add, edit, and delete pizzas with a fixed topping list and a price per size.
+
+`npm test` runs against a temporary copy of the data, so it never changes your real menu or orders.

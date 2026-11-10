@@ -10,6 +10,7 @@ function priceOrder(menu, input) {
   const crusts = byId(menu.crusts);
   const toppings = byId(menu.toppings);
   const sides = byId(menu.sides);
+  const specialties = byId(menu.specialties || []);
 
   const items = [];
   const pizzas = Array.isArray(input.pizzas) ? input.pizzas : [];
@@ -19,6 +20,21 @@ function priceOrder(menu, input) {
     const size = sizes.get(p.size);
     const crust = crusts.get(p.crust);
     const qty = Number(p.qty);
+    if (p.specialty) {
+      const sp = specialties.get(p.specialty);
+      if (!sp) errors.push(`Pizza ${i + 1}: invalid specialty pizza`);
+      if (!size) errors.push(`Pizza ${i + 1}: invalid size`);
+      if (!crust) errors.push(`Pizza ${i + 1}: invalid crust`);
+      if (!Number.isInteger(qty) || qty < 1 || qty > 20) errors.push(`Pizza ${i + 1}: quantity must be 1-20`);
+      if (sp && size && crust && Number.isInteger(qty) && qty >= 1 && qty <= 20) {
+        const unit = round2(sp.prices[size.id] + crust.price);
+        items.push({
+          kind: 'pizza', specialty: sp.id, size: size.id, crust: crust.id, toppings: [], qty,
+          description: `${size.name} ${sp.name} (${crust.name})`, unitPrice: unit, lineTotal: round2(unit * qty),
+        });
+      }
+      return;
+    }
     if (!size) errors.push(`Pizza ${i + 1}: invalid size`);
     if (!crust) errors.push(`Pizza ${i + 1}: invalid crust`);
     if (!Number.isInteger(qty) || qty < 1 || qty > 20) errors.push(`Pizza ${i + 1}: quantity must be 1-20`);

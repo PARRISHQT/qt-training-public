@@ -23,6 +23,7 @@ async function init() {
     l.append(cb, ` ${t.name} (+${money(t.price)})`);
     $('toppings').append(l);
   });
+  renderSpecials();
   menu.sides.forEach((s) => {
     const row = el('div');
     row.append(el('span', `${s.name} – ${money(s.price)}`));
@@ -35,6 +36,29 @@ async function init() {
   $('tip').value = '0.15';
   refresh();
 }
+
+const readQty = () => Math.max(1, Math.min(20, parseInt($('qty').value, 10) || 1));
+
+// Specialty prices depend on the selected size, so re-render when it changes.
+function renderSpecials() {
+  const box = $('specials');
+  box.replaceChildren();
+  if (!menu.specialties.length) box.append(el('p', 'No specialty pizzas right now.'));
+  menu.specialties.forEach((sp) => {
+    const row = el('div');
+    const info = el('span', `${sp.name} – ${money(sp.prices[$('size').value])}`);
+    if (sp.description) info.append(el('br'), el('small', sp.description));
+    const b = el('button', 'Add', { type: 'button', className: 'small' });
+    b.onclick = () => {
+      cart.pizzas.push({ specialty: sp.id, size: $('size').value, crust: $('crust').value, toppings: [], qty: readQty() });
+      $('qty').value = 1;
+      refresh();
+    };
+    row.append(info, b);
+    box.append(row);
+  });
+}
+$('size').onchange = renderSpecials;
 
 $('addPizza').onclick = () => {
   const toppings = [...document.querySelectorAll('#toppings input:checked')].map((c) => c.value);
@@ -69,7 +93,7 @@ async function refresh() {
     li.append(el('span', `${it.qty} × ${it.description}`), el('span', money(it.lineTotal)));
     const rm = el('button', '✕', { type: 'button', className: 'small', title: 'Remove', ariaLabel: 'Remove item' });
     rm.onclick = () => {
-      if (it.kind === 'pizza') cart.pizzas.splice(cart.pizzas.findIndex((p) => p.size === it.size && p.crust === it.crust && p.qty === it.qty && p.toppings.join() === it.toppings.join()), 1);
+      if (it.kind === 'pizza') cart.pizzas.splice(cart.pizzas.findIndex((p) => p.specialty === it.specialty && p.size === it.size && p.crust === it.crust && p.qty === it.qty && p.toppings.join() === it.toppings.join()), 1);
       else delete cart.sides[it.id];
       refresh();
     };

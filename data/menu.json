@@ -29,6 +29,10 @@
     { "id": "pineapple", "name": "Pineapple", "price": 1.49 },
     { "id": "extra-cheese", "name": "Extra Cheese", "price": 1.49 }
   ],
+  "specialties": [
+    { "id": "meat-lovers", "name": "Meat Lovers", "description": "Pepperoni, sausage, ham, bacon and seasoned beef.", "toppings": ["pepperoni", "sausage", "ham", "bacon", "beef"], "prices": { "small": 13.99, "medium": 17.49, "large": 20.99 } },
+    { "id": "veggie-supreme", "name": "Veggie Supreme", "description": "Mushrooms, onions, green peppers and black olives.", "toppings": ["mushrooms", "onions", "green-peppers", "black-olives"], "prices": { "small": 12.99, "medium": 15.99, "large": 18.99 } }
+  ],
   "sides": [
     { "id": "breadsticks", "name": "Breadsticks (8)", "price": 6.99 },
     { "id": "wings", "name": "Chicken Wings (8)", "price": 10.99 },

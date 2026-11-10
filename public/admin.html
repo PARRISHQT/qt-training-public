@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin – Tulsa Pizza Co.</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    nav { display: flex; gap: .5rem; max-width: 1100px; margin: 1rem auto 0; padding: 0 1rem; }
+    nav button.active { background: #2b2118; }
+    #admin { max-width: 1100px; margin: 1rem auto; padding: 0 1rem; display: block; }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { text-align: left; padding: .4rem .5rem; border-bottom: 1px solid #eee; vertical-align: top; }
+    .pgroup { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: .25rem 1rem; }
+    .pgroup label { font-weight: 400; display: flex; justify-content: space-between; align-items: center; gap: .5rem; }
+    .pgroup input { width: 90px !important; margin: 0 !important; }
+    .sp { border-bottom: 1px solid #eee; padding: .6rem 0; display: flex; justify-content: space-between; gap: 1rem; }
+    .sp small { color: #666; display: block; } .actions { display: flex; gap: .4rem; align-items: flex-start; }
+    .msg { font-weight: 600; } .ok { color: #1a7f37; } .err { color: #b3261e; white-space: pre-line; }
+    button.secondary { background: #666; }
+  </style>
+</head>
+<body>
+  <header><h1>🍕 Admin</h1><p>Local use only · no password · <a href="/" style="color:#fff">Back to ordering page</a></p></header>
+  <nav>
+    <button data-tab="orders" class="active">Orders</button>
+    <button data-tab="prices">Prices &amp; fees</button>
+    <button data-tab="specials">Specialty pizzas</button>
+  </nav>
+  <div id="admin">
+    <p id="msg" class="msg" role="status"></p>
+
+    <section id="tab-orders" class="card">
+      <h2>Orders <button id="refreshOrders" class="small" type="button">Refresh</button></h2>
+      <p id="noOrders" hidden>No orders yet.</p>
+      <table id="ordersTable" hidden>
+        <thead><tr><th>Order</th><th>Placed</th><th>Customer</th><th>Type</th><th>Items</th><th>Total</th><th>Status</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section id="tab-prices" class="card" hidden>
+      <h2>Prices &amp; fees</h2>
+      <form id="pricesForm"></form>
+    </section>
+
+    <section id="tab-specials" class="card" hidden>
+      <h2>Specialty pizzas</h2>
+      <div id="spList"></div>
+      <h3 id="spFormTitle">Add a specialty pizza</h3>
+      <form id="spForm">
+        <label>Name <input name="name" required maxlength="60"></label>
+        <label>Description <input name="description" maxlength="200"></label>
+        <fieldset><legend>Toppings</legend><div id="spToppings" class="grid"></div></fieldset>
+        <fieldset><legend>Price by size</legend><div id="spPrices" class="pgroup"></div></fieldset>
+        <div class="actions"><button type="submit" id="spSave">Add specialty</button><button type="button" id="spCancel" class="secondary" hidden>Cancel edit</button></div>
+      </form>
+    </section>
+  </div>
+  <script src="admin-page.js"></script>
+</body>
+</html>
