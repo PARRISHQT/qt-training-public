@@ -112,3 +112,24 @@ what drive is this session running in?
 use playwrite to test the pizza ordering app here C:\Users\jfoster\Documents\Claude Code Class and give me a report
 
 **Summary:** Added a Playwright config and 15-test spec (API, customer UI, kitchen UI) that runs the Documents copy of the app on port 3300 with a throwaway database; all 15 passed. Files changed: e2e/playwright.documents.config.js, e2e/tests-documents/app.spec.js, prompt-log.md.
+
+## 2026-11-10 15:26 · main
+
+**Prompt:**
+what drive is this session running in?
+
+**Summary:** Answered that the session runs from the H: network drive. No code changed (logged late).
+
+## 2026-11-10 15:26 · main
+
+**Prompt:**
+what is the path that this claude session is running in?
+
+**Summary:** Answered that the working directory is H:\qt-training-public, a mapped network share. No code changed (logged late).
+
+## 2026-11-10 15:26 · main
+
+**Prompt:**
+based on the testing, alter the code to there 2 of the test fail
+
+**Summary:** Added two intentional bugs: server/app.js drops the earliest pickup slot (fails the pickup-time test) and client/src/components/KitchenPage.vue sends the wrong status on Mark Ready (fails the kitchen test). Also removed serial mode and made the kitchen test place its own order in e2e/tests/ordering.spec.js so exactly 2 tests fail; rebuilt the client.

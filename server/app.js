@@ -70,7 +70,8 @@ export function createApp({ db, kitchenPin, staticDir, now = shopNowMinutes }) {
       maxQuantity: STORE.maxQuantity,
       acceptingOrders: earliestPickupMinutes(n) !== null,
       asapAvailable: earliestPickupMinutes(n) !== null,
-      pickupSlots: pickupSlots(n).map((m) => ({
+      // INTENTIONAL BUG (training): slice(1) drops the earliest valid pickup slot.
+      pickupSlots: pickupSlots(n).slice(1).map((m) => ({
         value: `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`,
         label: formatMinutes(m),
       })),

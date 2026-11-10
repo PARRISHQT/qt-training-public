@@ -2,8 +2,8 @@ import { test, expect } from '@playwright/test';
 
 const PIN = '6046';
 
-test.describe.configure({ mode: 'serial' });
-
+// Tests run in file order on one worker (see playwright.config.js). Not "serial" mode,
+// so one failing test does not cause the rest to be skipped.
 let orderNumber;
 
 test('customer builds an order, reviews it, and places it', async ({ page }) => {
@@ -67,7 +67,19 @@ test('pickup time only offers slots at least 30 minutes out, within hours', asyn
   expect(options).not.toContain('12:15 PM');
 });
 
-test('kitchen: wrong PIN rejected, right PIN shows order, status flow works', async ({ page }) => {
+test('kitchen: wrong PIN rejected, right PIN shows order, status flow works', async ({ page, request }) => {
+  // Place its own order so this test does not depend on the others (a failed test restarts the worker).
+  const res = await request.post('/api/orders', {
+    data: {
+      name: 'Leonardo',
+      phone: '918-555-0123',
+      pickup: 'ASAP',
+      items: [{ size: 'large', toppings: ['pepperoni', 'onions'], quantity: 2 }],
+    },
+  });
+  expect(res.status()).toBe(201);
+  orderNumber = String((await res.json()).orderNumber);
+
   await page.goto('/kitchen');
   await page.getByLabel('Kitchen PIN').fill('0000');
   await page.getByRole('button', { name: 'Unlock' }).click();

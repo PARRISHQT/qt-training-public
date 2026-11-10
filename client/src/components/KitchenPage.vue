@@ -113,7 +113,7 @@ const placedAt = (iso) =>
             </ul>
             <p class="total">Total: {{ money(o.totalCents) }}</p>
             <div class="actions">
-              <button v-if="o.status === 'New'" class="btn" @click="move(o, 'Ready')">Mark Ready</button>
+              <button v-if="o.status === 'New'" class="btn" @click="move(o, 'Picked Up')">Mark Ready</button>
               <template v-if="o.status === 'Ready'">
                 <button class="btn" @click="move(o, 'Picked Up')">Picked Up</button>
                 <button class="mini" @click="move(o, 'New')">Back to New</button>
