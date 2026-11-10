@@ -105,3 +105,10 @@ run the test where I can see it happening
 what drive is this session running in?
 
 **Summary:** Answered that the session's working directory is on the H: drive, a network share. Only prompt-log.md changed.
+
+## 2026-11-10 15:15 · main
+
+**Prompt:**
+use playwrite to test the pizza ordering app here C:\Users\jfoster\Documents\Claude Code Class and give me a report
+
+**Summary:** Added a Playwright config and 15-test spec (API, customer UI, kitchen UI) that runs the Documents copy of the app on port 3300 with a throwaway database; all 15 passed. Files changed: e2e/playwright.documents.config.js, e2e/tests-documents/app.spec.js, prompt-log.md.
