@@ -2,8 +2,10 @@ import { defineConfig } from '@playwright/test';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
-// Targets the deployed copy of the app in Documents, on its own port and a throwaway database.
-const APP_DIR = 'C:/Users/jfoster/Documents/Claude Code Class';
+// Targets the repo's own server/ and client/dist (the same code we edit), on its own port and a
+// throwaway database. Build the client first (`npm run build` in the repo root) after UI changes.
+// Run from e2e/ (as documented), so the repo root is one level up.
+const APP_DIR = join(process.cwd(), '..').replace(/\\/g, '/');
 const PORT = 3300;
 
 export default defineConfig({

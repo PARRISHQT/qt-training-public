@@ -161,3 +161,10 @@ test again
 send a report of where, how, and what you tested as well as the test report to the other session
 
 **Summary:** Sent the test location, method, coverage, and 15/15 pass results to the "pizza-pickup-ordering-app" session via SendMessage. Only prompt-log.md changed.
+
+## 2026-11-10 15:41 · main
+
+**Prompt:**
+okay, let's make sure we have it where the other session is testing the same thing we are making changes to.
+
+**Summary:** Changed e2e/playwright.documents.config.js to run the repo's own server/ and client/dist instead of the stale Documents copy. The other session's suite now runs against the current code: 13 pass, 1 fails (Mark Ready bug), 1 skipped.
