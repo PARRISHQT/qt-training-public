@@ -1,42 +1,178 @@
 {
   "_notes": "Prices are estimates for the Tulsa, OK area, based on web research (Nov 2026). Chain large pepperoni averages found: Pizza Hut ~$18.65, Papa Johns ~$18.91, Domino's ~$20.66 (national, Allrecipes/AOL). Tulsa Pizza Hut large Detroit-style pepperoni listed at $14.47 on Caviar. Delivery fee: Uber Eats showed $1.49 for a Tulsa Domino's, Caviar showed $0 promos; no chain publishes a fixed fee, so $4.99 is an assumed typical in-house delivery fee. Tax: Tulsa base combined rate 8.517% (4.5% state + 0.367% county + 3.65% city); actual rate varies by address up to ~9.8%. A QT employee should verify all values before any real use.",
   "taxRate": 0.08517,
-  "delivery": { "fee": 4.99, "minimum": 15.0, "freeOver": null },
-  "tipOptions": [0, 0.15, 0.18, 0.2],
+  "delivery": {
+    "fee": 7.99,
+    "minimum": 15,
+    "freeOver": null
+  },
+  "tipOptions": [
+    0,
+    0.15,
+    0.18,
+    0.2
+  ],
   "sizes": [
-    { "id": "small", "name": "Small 10\"", "price": 10.99 },
-    { "id": "medium", "name": "Medium 12\"", "price": 13.99 },
-    { "id": "large", "name": "Large 14\"", "price": 16.99 }
+    {
+      "id": "small",
+      "name": "Small 10\"",
+      "price": 10.99
+    },
+    {
+      "id": "medium",
+      "name": "Medium 12\"",
+      "price": 13.99
+    },
+    {
+      "id": "large",
+      "name": "Large 14\"",
+      "price": 16.99
+    }
   ],
   "crusts": [
-    { "id": "hand-tossed", "name": "Hand Tossed", "price": 0 },
-    { "id": "thin", "name": "Thin Crust", "price": 0 },
-    { "id": "pan", "name": "Pan", "price": 1.5 },
-    { "id": "stuffed", "name": "Stuffed Crust", "price": 2.5 }
+    {
+      "id": "hand-tossed",
+      "name": "Hand Tossed",
+      "price": 0
+    },
+    {
+      "id": "thin",
+      "name": "Thin Crust",
+      "price": 0
+    },
+    {
+      "id": "pan",
+      "name": "Pan",
+      "price": 1.5
+    },
+    {
+      "id": "stuffed",
+      "name": "Stuffed Crust",
+      "price": 2.5
+    }
   ],
   "toppings": [
-    { "id": "pepperoni", "name": "Pepperoni", "price": 1.99 },
-    { "id": "sausage", "name": "Italian Sausage", "price": 1.99 },
-    { "id": "ham", "name": "Ham", "price": 1.99 },
-    { "id": "bacon", "name": "Bacon", "price": 1.99 },
-    { "id": "beef", "name": "Seasoned Beef", "price": 1.99 },
-    { "id": "chicken", "name": "Grilled Chicken", "price": 1.99 },
-    { "id": "mushrooms", "name": "Mushrooms", "price": 1.49 },
-    { "id": "onions", "name": "Onions", "price": 1.49 },
-    { "id": "green-peppers", "name": "Green Peppers", "price": 1.49 },
-    { "id": "black-olives", "name": "Black Olives", "price": 1.49 },
-    { "id": "jalapenos", "name": "Jalapeños", "price": 1.49 },
-    { "id": "pineapple", "name": "Pineapple", "price": 1.49 },
-    { "id": "extra-cheese", "name": "Extra Cheese", "price": 1.49 }
+    {
+      "id": "pepperoni",
+      "name": "Pepperoni",
+      "price": 1.99
+    },
+    {
+      "id": "sausage",
+      "name": "Italian Sausage",
+      "price": 1.99
+    },
+    {
+      "id": "ham",
+      "name": "Ham",
+      "price": 1.99
+    },
+    {
+      "id": "bacon",
+      "name": "Bacon",
+      "price": 1.99
+    },
+    {
+      "id": "beef",
+      "name": "Seasoned Beef",
+      "price": 1.99
+    },
+    {
+      "id": "chicken",
+      "name": "Grilled Chicken",
+      "price": 1.99
+    },
+    {
+      "id": "mushrooms",
+      "name": "Mushrooms",
+      "price": 1.49
+    },
+    {
+      "id": "onions",
+      "name": "Onions",
+      "price": 1.49
+    },
+    {
+      "id": "green-peppers",
+      "name": "Green Peppers",
+      "price": 1.49
+    },
+    {
+      "id": "black-olives",
+      "name": "Black Olives",
+      "price": 1.49
+    },
+    {
+      "id": "jalapenos",
+      "name": "Jalapeños",
+      "price": 1.49
+    },
+    {
+      "id": "pineapple",
+      "name": "Pineapple",
+      "price": 1.49
+    },
+    {
+      "id": "extra-cheese",
+      "name": "Extra Cheese",
+      "price": 1.49
+    }
   ],
   "specialties": [
-    { "id": "meat-lovers", "name": "Meat Lovers", "description": "Pepperoni, sausage, ham, bacon and seasoned beef.", "toppings": ["pepperoni", "sausage", "ham", "bacon", "beef"], "prices": { "small": 13.99, "medium": 17.49, "large": 20.99 } },
-    { "id": "veggie-supreme", "name": "Veggie Supreme", "description": "Mushrooms, onions, green peppers and black olives.", "toppings": ["mushrooms", "onions", "green-peppers", "black-olives"], "prices": { "small": 12.99, "medium": 15.99, "large": 18.99 } }
+    {
+      "id": "meat-lovers",
+      "name": "Meat Lovers",
+      "description": "Pepperoni, sausage, ham, bacon and seasoned beef.",
+      "toppings": [
+        "pepperoni",
+        "sausage",
+        "ham",
+        "bacon",
+        "beef"
+      ],
+      "prices": {
+        "small": 13.99,
+        "medium": 17.49,
+        "large": 20.99
+      }
+    },
+    {
+      "id": "veggie-supreme",
+      "name": "Veggie Supreme",
+      "description": "Mushrooms, onions, green peppers and black olives.",
+      "toppings": [
+        "mushrooms",
+        "onions",
+        "green-peppers",
+        "black-olives"
+      ],
+      "prices": {
+        "small": 12.99,
+        "medium": 15.99,
+        "large": 18.99
+      }
+    }
   ],
   "sides": [
-    { "id": "breadsticks", "name": "Breadsticks (8)", "price": 6.99 },
-    { "id": "wings", "name": "Chicken Wings (8)", "price": 10.99 },
-    { "id": "cinnamon", "name": "Cinnamon Bites", "price": 5.99 },
-    { "id": "soda-2l", "name": "2-Liter Soda", "price": 3.99 }
+    {
+      "id": "breadsticks",
+      "name": "Breadsticks (8)",
+      "price": 6.99
+    },
+    {
+      "id": "wings",
+      "name": "Chicken Wings (8)",
+      "price": 10.99
+    },
+    {
+      "id": "cinnamon",
+      "name": "Cinnamon Bites",
+      "price": 5.99
+    },
+    {
+      "id": "soda-2l",
+      "name": "2-Liter Soda",
+      "price": 3.99
+    }
   ]
 }

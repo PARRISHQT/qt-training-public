@@ -1,13 +1,16 @@
 {
-  "name": "pizza-order-app",
-  "version": "1.0.0",
-  "description": "Pizza ordering web app (Node, no dependencies)",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "test": "node test.js"
-  },
-  "engines": { "node": ">=18" },
+  "name": "neighborhood-pizza",
+  "version": "2.0.0",
+  "description": "Neighborhood Pizza online pickup ordering (Vue, Node, SQLite)",
+  "private": true,
   "license": "UNLICENSED",
-  "private": true
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "install:all": "npm install --prefix server && npm install --prefix client",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "build": "npm run build --prefix client",
+    "start": "npm run build && npm start --prefix server",
+    "test": "npm test --prefix server"
+  }
 }

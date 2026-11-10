@@ -32,3 +32,48 @@ How do I access the backend/orders?
 give me an admin view, no password for now. it needs to allow me to change prices, view orders, and add specialized pizzas
 
 **Summary:** Added an admin page (public/admin.html, admin-page.js) and local-only admin API (server.js, admin.js) for viewing orders, editing prices/fees/tax, and managing specialty pizzas. Specialty pizzas also appear on the ordering page (pricing.js, index.html, app.js), with seed data in data/menu.json, extended tests, and README docs.
+
+## 2026-11-10 14:57 · main
+
+**Prompt:**
+r, pizza details, and total.
+- AC-4.2: New orders are marked as **New**, and staff can change their status to **Ready** when preparation is complete.
+- AC-4.3: Orders and their current statuses remain available after the application is closed and reopened.
+
+## 5. Additional Expectations
+
+We want the ordering experience to be simple enough for customers to use without assistance. Prices should be clear, and customers should know whether their order was successfully submitted.
+
+For now, we're only offering pickup orders. We don't need delivery, online payments, customer accounts, coupons, or loyalty programs.
+
+We aren't charging additional taxes or fees through the application.
+
+**Summary:** Plan mode was active, so no files were changed. Wrote a plan in the plan file; the message was a truncated fragment of the requirements.
+
+## 2026-11-10 14:57 · main
+
+**Prompt:**
+review the prompt1.txt and follow the instructions located H:\Claude Code Training
+
+**Summary:** Read prompt1.txt, reviewed the Neighborhood Pizza requirements for gaps, and asked four clarifying questions one at a time (kitchen access, order lifecycle, pickup details, pickup rules). No repo files changed.
+
+## 2026-11-10 14:57 · main
+
+**Prompt:**
+Let's go with a 90's nikolodeon cartoon theme. The pin to login to the admin is 6046 hours are 10:00 am to 11:00 pm with at least 30 minute lead time
+
+**Summary:** Finalized the plan with the theme, PIN, hours, and lead time, then built the app: Node/Express + SQLite API in server/ (with tests), Vue 3 + Vite client in client/, and updated package.json. The PIN lives in a git-ignored .env.
+
+## 2026-11-10 14:57 · main
+
+**Prompt:**
+Simply this and, if needed run it locally on \tulnaef01\qtcchomedirs\jfoster\Documents\Claude Code Class which is my local pc
+
+**Summary:** Interrupted before any action; no files changed.
+
+## 2026-11-10 14:57 · main
+
+**Prompt:**
+Simply this and, if needed run it locally on c:\users\jfoster\Documents\Claude Code Class
+
+**Summary:** The server would not start from the H: network drive, so I copied the server, built client, and .env to C:\Users\jfoster\Documents\Claude Code Class, installed dependencies there, and confirmed it serves on port 3100. Repo files changed: prompt-log.md plus the new server/, client/, and package.json.
