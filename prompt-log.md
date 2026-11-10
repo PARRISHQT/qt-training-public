@@ -77,3 +77,10 @@ Simply this and, if needed run it locally on \tulnaef01\qtcchomedirs\jfoster\Doc
 Simply this and, if needed run it locally on c:\users\jfoster\Documents\Claude Code Class
 
 **Summary:** The server would not start from the H: network drive, so I copied the server, built client, and .env to C:\Users\jfoster\Documents\Claude Code Class, installed dependencies there, and confirmed it serves on port 3100. Repo files changed: prompt-log.md plus the new server/, client/, and package.json.
+
+## 2026-11-10 15:00 · main
+
+**Prompt:**
+please launch them in edge, both the customer side and the kitchen side
+
+**Summary:** Started the server from C:\Users\jfoster\Documents\Claude Code Class on port 3100 and opened the customer page and the /kitchen page in Edge. Only prompt-log.md changed.
