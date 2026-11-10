@@ -18,3 +18,10 @@ start the server and open it in the browser
 launge the backend please
 
 **Summary:** Interpreted as "launch the backend". The backend is the same Node process already running on port 3000, so I verified the API responds instead of starting a second copy. Only prompt-log.md changed.
+
+## 2026-11-10 13:45 · main
+
+**Prompt:**
+How do I access the backend/orders?
+
+**Summary:** Explained how to view orders: the data/orders.json file, and the GET /api/orders/<id> endpoint. No code changed; only prompt-log.md.
